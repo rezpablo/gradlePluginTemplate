@@ -5,13 +5,14 @@ buildscript {
         }
     }
     dependencies {
-        classpath group: 'com.code4reference',
-                name: 'code4ReferencePlugin',
-                version: '1.1-SNAPSHOT'
+        classpath group: 'net.microservices', // package
+                name: 'microservicesPlugin', // settings.gradle > rootProject.name
+                version: '1.0-SNAPSHOT'
     }
 }
-apply plugin: 'code4reference'/**/
+apply plugin: 'microservices'/**/
 
-task checkitout(type: com.code4reference.gradle.MyTask) {
-    println("running consumer task!")
+task printOut(type: net.microservices.gradle.TaskedAction) {
+    group = "globalTasks"
+    println("running TaskedAction task!")
 }
